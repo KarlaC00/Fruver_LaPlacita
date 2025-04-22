@@ -1,5 +1,6 @@
 import React from "react";
 import Icon from "./icon";
+import  Boton from "./boton";
 
 const Navbar = () => {
   return (
@@ -15,6 +16,7 @@ const Navbar = () => {
         <li><a href="badges.html">PRODUCTOS</a></li>
         <li><a href="collapsible.html">NOSOTROS</a></li>
         <li><a href="mobile.html">API</a></li>
+        <li><Boton /></li>
       </ul>
     </div>
     <div>
