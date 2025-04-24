@@ -1,7 +1,14 @@
-const Boton = () => {
+const Boton = ({ texto, color = 'blue', href = '#!', textoColor = 'white' }) => {
   return (
-    <a class="waves-effect waves-light btn-large white green-text">Acceder</a>
+    <a
+      className={`waves-effect waves-light btn-large ${color}`}
+      href={href}
+      style={{ color: textoColor }}
+    >
+      {texto}
+    </a>
   );
-}
+};
+  
 
 export default Boton;

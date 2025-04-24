@@ -6,17 +6,19 @@ const Navbar = () => {
   return (
     <nav>
     <div class="nav-wrapper light-green darken-4">
-        <a href="#!" className="brand-logo">
-        <Icon />
-          LA PLACITA
-        </a>
+          <a href="#!" className="brand-logo">
+            <Icon />
+            LA PLACITA
+          </a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="sass.html">HOME</a></li>
         <li><a href="badges.html">PRODUCTOS</a></li>
         <li><a href="collapsible.html">NOSOTROS</a></li>
         <li><a href="mobile.html">API</a></li>
-        <li><Boton /></li>
+        <li>
+        <Boton texto="Acceder" textoColor="green" color="white" href="" />
+        </li>
       </ul>
     </div>
     <div>
