@@ -1,8 +1,11 @@
 import React from "react";
+import Search from "../components/productos/search";
 
 const Productos = () => {
     return(
-    <h1>PRODUCTOS</h1>
+        <div>
+            <Search/>
+        </div>
     );
 };
 
