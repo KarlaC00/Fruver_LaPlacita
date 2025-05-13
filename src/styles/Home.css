@@ -1,0 +1,26 @@
+/* Contenedor principal con imagen de fondo */
+.card-container-with-bg {
+  background-image: url('../assets/CardHomeBG.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 300px;
+  padding: 2rem 0; /* Espacio vertical */
+  width: 100%;
+}
+
+/* Contenedor de las cards - IMPORTANTE */
+.card-center {
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 1200px; /* Ancho máximo del contenedor */
+  padding: 0 15px; /* Padding lateral para móviles */
+}
+
+/* Ajustes específicos para Materialize */
+.card-center .col {
+  float: none; /* Anula el float de Materialize */
+  display: flex;
+  justify-content: center;
+}
