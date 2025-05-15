@@ -3,12 +3,13 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/nav";
 import Footer from "./components/footer";
 import Productos from "./Pages/Productos"; 
-import Home from "./Pages/home";
 import Nosotros from "./Pages/nosotros";
 import API from "./Pages/API"
 import "materialize-css/dist/css/materialize.min.css";
 import "material-icons/iconfont/material-icons.css";
 import M from "materialize-css/dist/js/materialize.min.js";
+import FrutasScroll from "./components/Home/FrutasScroll";
+import Home from "./Pages/Home";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/Nosotros" element={<Nosotros />} />
         <Route path="/API" element={<API />} />
       </Routes>
+      <FrutasScroll />
       <Footer />
     </>
   );

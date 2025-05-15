@@ -1,19 +1,30 @@
-export const CardHome = ({ title = "", description = "" }) => {
+
+export const CardHome = ({ title = "", description = "", icon = "info", boton ="" }) => {
   return (
-    <div className="col s12 m4 l4">
-      <div className="card center-align z-depth-0" style={{
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center', 
-        background: 'transparent', 
-        boxShadow: 'none', 
-        border: 'none' 
-      }}>
-        <span className="card-title flow-text" style={{ fontWeight: 'bold' }}>{title}</span>
+    <div className="col s12 m4 l4 my-5">
+      <div
+        className="card center-align z-depth-1 hoverable"
+        style={{
+          padding: "20px",
+          borderRadius: "10px",
+          height: "100%",
+        }}
+      >
+        <i className="material-icons large light-green-text text-darken-3">{icon}</i>
+        <span className="card-title flow-text" style={{ fontWeight: "bold" }}>
+          {title}
+        </span>
         <div className="card-content flow-text">
           <p>{description}</p>
+          
         </div>
+        <button
+            className="btn light-green darken-3"
+            onClick={() => Navigate("/productos")}
+            style={{ marginTop: "20px" }}
+          >
+            {boton}
+          </button>
       </div>
     </div>
   );

@@ -1,28 +1,54 @@
 import React from "react";
 import Imagetop from "../components/Imagetop";
-import { CardHome } from "../components/Home/cardHome";
+import Navbar from "../components/nav";
+import Footer from "../components/footer";
+import { CardHome } from "../components/Home/CardHome";
+import Testimonios from "../components/Home/Testimonios";
+import { Navigate } from "react-router-dom";
+import FrutasScroll from "../components/Home/FrutasScroll";
+
 import "../styles/Home.css";
+import Bienvenida from "../components/Home/Bienvenida";
 
 const Home = () => {
   return (
     <>
-      <Imagetop title="¡Bienvenidos a la Placita!" />
-      <div className="card-container-with-bg">
-        <div className="row card-center ">
+      <Imagetop
+        title="Bienvenidos a La Placita"
+        height="60vh"
+        brightness={50}
+      />
+
+      <div className="container">
+        {/* Tarjetas de Información */}
+        <div className="row">
           <CardHome
-            title="Frutas y Verduras"
-            description="Descubre lo mejor de la temporada. ¡Productos frescos, locales y llenos de sabor directos a tu mesa!"
+            icon="local_florist"
+            title="Productos Frescos"
+            description="Frutas y verduras seleccionadas a diario para ti."
+            boton="Nuestros Productos"
           />
           <CardHome
-            title="Total de la Compra"
-            description="Revisa y gestiona tu canasta fácilmente. ¿Listo para disfrutar de tu pedido?"
+            icon="support_agent"
+            title="Atención Personalizada"
+            description="Nuestro equipo está comprometido en brindarte una gran experiencia."
+            boton="API de atención"
           />
           <CardHome
-            title="Revisa tu Factura"
-            description="Transparencia en cada compra. Descarga o comparte tu factura con un solo clic."
+            icon="spa"
+            title="Apoyo al Campo"
+            description="Apoyamos a agricultores locales garantizando calidad y comercio justo."
+            boton="Sobre Nosotros"
           />
         </div>
+
+        {/* Sección de Bienvenida */}
+        <Bienvenida onVerProductos={() => navigate("/productos")} />
+
+        {/* Testimonios */}
+        <Testimonios />
       </div>
+
     </>
   );
 };
