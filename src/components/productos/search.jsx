@@ -1,11 +1,13 @@
-import React from "react";
+const Search = ({ onBuscar }) => {
+  const handleChange = (e) => {
+    onBuscar(e.target.value);
+  };
 
-const search = () => {
   return (
     <div className="nav-wrapper" id="search">
       <form>
         <div className="input-field">
-          <input id="search" type="search" required />
+          <input id="search" type="search" onChange={handleChange} />
           <label className="label-icon" htmlFor="search">
             <i className="material-icons">search</i>
           </label>
@@ -14,4 +16,5 @@ const search = () => {
     </div>
   );
 };
-export default search;
+
+export default Search;
