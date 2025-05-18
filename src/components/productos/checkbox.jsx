@@ -40,21 +40,22 @@ function CheckboxFrutas({ onChangeFrutas }) {
   };
 
   return (
-    <ul style={{ fontSize: '18px', padding: '10px', listStyle: 'none', margin: 0 }}>
-      {categorias.map((categoria) => (
-        <li key={categoria.key} style={{ marginBottom: '10px' }}>
-          <label style={{ display: 'flex', alignItems: 'center' }}>
-            <input
-              type="checkbox"
-              checked={!!seleccionadas[categoria.key]}
-              onChange={() => toggleCategoria(categoria.key)}
-              style={{ transform: 'scale(1.5)', marginRight: '10px' }}
-            />
-            <span>{categoria.nombre}</span>
-          </label>
-        </li>
-      ))}
-    </ul>
+    <ul>
+  {categorias.map((categoria) => (
+    <li key={categoria.key}>
+      <label>
+        <input
+          type="checkbox"
+          className="filled-in"
+          checked={!!seleccionadas[categoria.key]}
+          onChange={() => toggleCategoria(categoria.key)}
+        />
+        <span>{categoria.nombre}</span>
+      </label>
+    </li>
+  ))}
+</ul>
+
   );
 }
 
