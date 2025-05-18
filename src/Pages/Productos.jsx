@@ -5,7 +5,8 @@ import TarjetaProducto from "../components/productos/tarjetasproductos";
 import CheckboxFrutas from "../components/productos/checkbox";
 import { frutasCitricas, frutasTropicales } from "../components/productos/datos"; 
 import Paginacion from "../components/productos/paginacion";
-import '../styles/productos.css'
+import usePaginacion from "../components/productos/usePaginacion";
+import '../styles/productos.css';
 
 const Productos = () => {
   const [frutasMostradas, setFrutasMostradas] = useState([
@@ -20,8 +21,18 @@ const Productos = () => {
     fruta.nombre.toLowerCase().includes(textoBusqueda.toLowerCase())
   );
 
+  // Hook de paginación
+  const {
+    paginaActual,
+    totalPaginas,
+    itemsPaginados: frutasPaginadas,
+    cambiarPagina,
+    setPaginaActual,
+  } = usePaginacion(frutasFiltradas, 8); 
+
   const handleFrutasChange = (frutas) => {
     setFrutasMostradas(frutas);
+    setPaginaActual(1); 
   };
 
   return (
@@ -36,13 +47,21 @@ const Productos = () => {
           <div style={{ flex: 1 }}>
             <CheckboxFrutas onChangeFrutas={handleFrutasChange} />
           </div>
-          <div style={{ flex: 5 }}>
+          <div style={{ flex: 3 }}>
             <div className="row">
-              {frutasFiltradas.map((fruta, index) => (
+              {frutasPaginadas.map((fruta, index) => (
                 <TarjetaProducto key={index} {...fruta} />
               ))}
             </div>
-            <Paginacion/>
+            {totalPaginas > 1 && (
+              <div className="center">
+                <Paginacion
+                  currentPage={paginaActual}
+                  totalPages={totalPaginas}
+                  onPageChange={cambiarPagina}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -1,14 +1,38 @@
-const paginacion = () => {
+const Paginacion = ({ currentPage, totalPages, onPageChange }) => {
+  const pages = [];
+  for (let i = 1; i <= totalPages; i++) {
+    pages.push(
+      <li
+        key={i}
+        className={i === currentPage ? "active light-green darken-4" : "waves-effect"}
+        onClick={() => onPageChange(i)}
+      >
+        <a href="#!">{i}</a>
+      </li>
+    );
+  }
+
   return (
-  <ul class="pagination">
-    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-    <li class="active"><a href="#!">1</a></li>
-    <li class="waves-effect"><a href="#!">2</a></li>
-    <li class="waves-effect"><a href="#!">3</a></li>
-    <li class="waves-effect"><a href="#!">4</a></li>
-    <li class="waves-effect"><a href="#!">5</a></li>
-    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-  </ul>
+    <ul className="pagination">
+      <li
+        className={currentPage === 1 ? "disabled" : "waves-effect"}
+        onClick={() => onPageChange(currentPage - 1)}
+      >
+        <a href="#!">
+          <i className="material-icons ">chevron_left</i>
+        </a>
+      </li>
+      {pages}
+      <li
+        className={currentPage === totalPages ? "disabled" : "waves-effect " }
+        onClick={() => onPageChange(currentPage + 1)}
+      >
+        <a href="#!">
+          <i className="material-icons ">chevron_right</i>
+        </a>
+      </li>
+    </ul>
   );
 };
-export default paginacion;
+
+export default Paginacion;
