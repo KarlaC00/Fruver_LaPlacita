@@ -43,7 +43,7 @@ const Home = () => {
         </div>
 
         {/* Sección de Bienvenida */}
-        <Bienvenida onVerProductos={() => navigate("/productos")} />
+        <Bienvenida onVerProductos={() => Navigate("/productos")} />
 
         {/* Testimonios */}
         <Testimonios />
