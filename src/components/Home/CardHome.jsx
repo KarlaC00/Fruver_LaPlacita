@@ -1,5 +1,8 @@
+import { useNavigate } from "react-router-dom";
 
-export const CardHome = ({ title = "", description = "", icon = "info", boton ="" }) => {
+export const CardHome = ({ title = "", description = "", icon = "info", boton = "", path = "/" }) => {
+  const navigate = useNavigate();
+  
   return (
     <div className="col s12 m4 l4 my-5">
       <div
@@ -16,15 +19,14 @@ export const CardHome = ({ title = "", description = "", icon = "info", boton ="
         </span>
         <div className="card-content flow-text">
           <p>{description}</p>
-          
         </div>
         <button
-            className="btn light-green darken-3"
-            onClick={() => Navigate("/productos")}
-            style={{ marginTop: "20px" }}
-          >
-            {boton}
-          </button>
+          className="btn light-green darken-3"
+          onClick={() => navigate(path)}
+          style={{ marginTop: "20px" }}
+        >
+          {boton}
+        </button>
       </div>
     </div>
   );

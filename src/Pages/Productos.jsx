@@ -3,6 +3,8 @@ import Search from "../components/productos/search";
 import Imagetop from "../components/Imagetop";
 import TarjetaProducto from "../components/productos/tarjetasproductos";
 import CheckboxFrutas from "../components/productos/checkbox";
+import mercadoImg from "../assets/granos.png";
+
 import {
   frutasCitricas,
   frutasTropicales,
@@ -42,20 +44,32 @@ const Productos = () => {
     <>
       <Imagetop title="Nuestros Productos" />
       <div className="container">
-        <div className="usda-intro section container">
-          <h5
-            className="center-align light-green-text text-darken-3"
-            style={{ fontWeight: "bold" }}
-          >
-            Descubre nuestros productos frescos y saludables
-          </h5>
-          <p className="flow-text center-align">
-            En <strong>La Placita</strong> seleccionamos las mejores frutas para
-            ti. Explora nuestra variedad de productos, conoce sus beneficios y
-            elige lo mejor para tu alimentación diaria. ¡Disfruta calidad y
-            sabor en cada bocado!
-          </p>
+        <div className="section row valign-wrapper bienvenida-section ">
+           {/* Columna de imagen */}
+          <div className="col s12 m6 center-align">
+            <img
+              src={mercadoImg}
+              alt="Mercado"
+              className="responsive-img bienvenida-img"
+            />
+          </div>
+          {/* Columna de texto */}
+          <div className="col s12 m6">
+            <h4
+              className="light-green-text text-darken-4"
+              style={{ fontWeight: "bold" }}
+            >
+              Descubre nuestros productos frescos y saludables
+            </h4>
+            <p className="flow-text">
+              En <strong>La Placita</strong> seleccionamos las mejores frutas
+              para ti. Explora nuestra variedad de productos, conoce sus
+              beneficios y elige lo mejor para tu alimentación diaria. ¡Disfruta
+              calidad y sabor en cada bocado!
+            </p>
+          </div>         
         </div>
+        
         <Search onBuscar={setTextoBusqueda} />
 
         <div className="divider" style={{ margin: "20px 0" }}></div>

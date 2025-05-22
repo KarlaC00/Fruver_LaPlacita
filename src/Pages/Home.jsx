@@ -4,9 +4,7 @@ import Navbar from "../components/nav";
 import Footer from "../components/footer";
 import { CardHome } from "../components/Home/CardHome";
 import Testimonios from "../components/Home/Testimonios";
-import { Navigate } from "react-router-dom";
 import FrutasScroll from "../components/Home/FrutasScroll";
-
 import "../styles/Home.css";
 import Bienvenida from "../components/Home/Bienvenida";
 
@@ -25,30 +23,32 @@ const Home = () => {
           <CardHome
             icon="local_florist"
             title="Productos Frescos"
-            description="Frutas y verduras seleccionadas a diario para ti."
+            description="Frutas y verduras seleccionadas cuidadosamente para tu bienestar diario."
             boton="Nuestros Productos"
+            path="/productos"
           />
           <CardHome
-            icon="support_agent"
-            title="Atención Personalizada"
-            description="Nuestro equipo está comprometido en brindarte una gran experiencia."
-            boton="API de atención"
+            icon="monitor_heart"
+            title="Información Nutricional"
+            description="Descubre el valor nutricional completo de cada alimento que consumes."
+            boton="API de nutrición"
+            path="/api"
           />
           <CardHome
             icon="spa"
             title="Apoyo al Campo"
-            description="Apoyamos a agricultores locales garantizando calidad y comercio justo."
+            description="Trabajamos directamente con agricultores locales para ofrecerte lo mejor."
             boton="Sobre Nosotros"
+            path="/nosotros"
           />
         </div>
 
         {/* Sección de Bienvenida */}
-        <Bienvenida onVerProductos={() => Navigate("/productos")} />
+        <Bienvenida />
 
         {/* Testimonios */}
         <Testimonios />
       </div>
-
     </>
   );
 };

@@ -1,8 +1,11 @@
 import React from "react";
 import mercadoImg from "../../assets/mercado.png";
 import "../../styles/Bienvenida.css";
+import { Navigate, useNavigate } from "react-router-dom";
 
-const Bienvenida = ({ onVerProductos }) => {
+const Bienvenida = ({  }) => {
+    const navigate = useNavigate();
+
   return (
     <div className="section row valign-wrapper bienvenida-section">
       {/* Columna de texto */}
@@ -18,7 +21,7 @@ const Bienvenida = ({ onVerProductos }) => {
           Valoramos el trabajo duro de nuestros agricultores locales y apoyamos el comercio justo. 
           Cada producto proviene de fuentes sostenibles, y nuestro equipo siempre está listo para ayudarte.
         </p>
-        <button className="btn light-green darken-3" onClick={onVerProductos} style={{ marginTop: "10px" }}>
+        <button className="btn light-green darken-3" onClick={() => navigate("/productos")} style={{ marginTop: "10px" }}>
           Ver Productos
           <i className="material-icons right">shopping_cart</i>
         </button>
