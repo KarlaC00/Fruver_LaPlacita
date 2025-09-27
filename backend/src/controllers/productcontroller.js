@@ -21,7 +21,6 @@ export const createProduct = async (req, res) => {
   }
 };
 
-// Listar todos los productos
 export const getProducts = async (req, res) => {
   try {
     const products = await Product.find();
@@ -32,7 +31,6 @@ export const getProducts = async (req, res) => {
   }
 };
 
-// Obtener un producto por ID
 export const getProduct = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
@@ -46,7 +44,6 @@ export const getProduct = async (req, res) => {
   }
 };
 
-// Actualizar un producto
 export const updateProduct = async (req, res) => {
   try {
     const productUpdated = await Product.findByIdAndUpdate(
@@ -65,7 +62,6 @@ export const updateProduct = async (req, res) => {
   }
 };
 
-// Eliminar un producto
 export const deleteProduct = async (req, res) => {
   try {
     const productDeleted = await Product.findByIdAndDelete(req.params.id);
