@@ -1,10 +1,23 @@
 import mongoose from 'mongoose'
 
 export const connectDB = async()=> {
-    try{
-        await mongoose.connect("mongodb+srv://Karla:123456789a@cluster0.wkrskvc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-        console.log("DB connected")
-    }catch(error){
-        console.log(error)
-    }
+  try {
+    // 👇 Pon los listeners primero
+    mongoose.connection.on("connected", () => {
+      console.log("🔥 Conectado a Mongo Atlas en DB:", mongoose.connection.name);
+    });
+
+    mongoose.connection.on("error", (err) => {
+      console.error("❌ Error de conexión:", err);
+    });
+
+    // 👇 Luego haz la conexión
+    await mongoose.connect(
+      "mongodb+srv://laplacita2345dbUser:hUxSL6UmFXyB7PUR@fruver.tihasbp.mongodb.net/fruver?retryWrites=true&w=majority&appName=fruver"
+    );
+    console.log("✅ DB connected");
+
+  } catch(error) {
+    console.log("❌ Error en connectDB:", error);
+  }
 }

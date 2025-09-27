@@ -2,7 +2,7 @@ import express from 'express'
 import morgan from 'morgan'
 
 import{ connectDB } from './db.js'
-import authRoutes from "./routes/auth.routes.js"
+import authRoutes from "./routes/productroutes.js"
 
 const app = express()
 app.use(morgan('dev'))
