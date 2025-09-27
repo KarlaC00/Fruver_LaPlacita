@@ -11,6 +11,11 @@ const purchaseSchema = new mongoose.Schema({
     ref: "Product",
     required: true
   },
+  provider: {
+    type: String,
+    required: true,
+    trim: true
+  },
   quantity: {
     type: Number,
     required: true,

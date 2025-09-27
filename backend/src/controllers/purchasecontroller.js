@@ -3,20 +3,17 @@ import Product from "../models/Product.js";
 
 export const createPurchase = async (req, res) => {
   try {
-    const { product_id, quantity } = req.body;
+    const { product_id, quantity, provider } = req.body;
 
     const product = await Product.findById(product_id);
     if (!product) return res.status(404).json({ message: "Product not found" });
-
-    if (quantity > product.stock) {
-      return res.status(400).json({ message: "Not enough stock" });
-    }
 
     const unit_price = product.price;
     const subtotal = quantity * unit_price;
 
     const newPurchase = new Purchase({
       product_id,
+      provider,
       quantity,
       unit_price,
       subtotal
@@ -24,7 +21,8 @@ export const createPurchase = async (req, res) => {
 
     const purchaseSaved = await newPurchase.save();
 
-    product.stock -= quantity;
+    // 👇 Como es compra, sumamos al stock
+    product.stock += quantity;
     await product.save();
 
     res.status(201).json(purchaseSaved);
@@ -36,7 +34,9 @@ export const createPurchase = async (req, res) => {
 
 export const getPurchases = async (req, res) => {
   try {
-    const purchases = await Purchase.find().populate("product_id", "name price");
+    const purchases = await Purchase.find()
+      .populate("product_id", "name price");
+
     res.json(purchases);
   } catch (error) {
     console.error(error);
@@ -44,12 +44,15 @@ export const getPurchases = async (req, res) => {
   }
 };
 
+
 export const getPurchase = async (req, res) => {
   try {
-    const purchase = await Purchase.findById(req.params.id).populate("product_id", "name price");
+    const purchase = await Purchase.findById(req.params.id)
+      .populate("product_id", "name price");
+
     if (!purchase) return res.status(404).json({ message: "Purchase not found" });
 
-    res.json(purchase);
+    res.json(purchase); // también trae provider
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error fetching purchase" });
