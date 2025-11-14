@@ -1,0 +1,29 @@
+.scroll-container {
+  width: 100%;
+  overflow: hidden;
+  background-color: #f1f8e9;
+  padding: 10px 0;
+  border-top: 4px solid #c5e1a5;
+  border-bottom: 4px solid #c5e1a5;
+}
+
+.scroll-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-frutas 30s linear infinite;
+}
+
+.fruta-icon {
+  font-size: 3rem;
+  margin: 0 20px;
+}
+
+/* Animación infinita */
+@keyframes scroll-frutas {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,13 @@
+
+hr{
+    width: 95%;
+    color: darkgreen;
+    border: 1px solid darkgreen;
+    margin: 2%;
+}
+
+.imgproductos{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}

@@ -1,0 +1,168 @@
+/* Estilos generales */
+.usda-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.usda-title {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+/* Barra de búsqueda */
+.usda-search {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.usda-input {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.usda-input:focus {
+  border-color: #2980b9;
+  outline: none;
+}
+
+.usda-button {
+  padding: 12px 24px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.usda-button:hover {
+  background-color: #2980b9;
+}
+
+.usda-button.loading {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+/* Mensajes de error */
+.usda-error {
+  color: #e74c3c;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+/* Resultados */
+.usda-results-container {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.usda-food-list {
+  flex: 1;
+  max-width: 300px;
+}
+
+.usda-food-list h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.usda-food-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.usda-food-list li {
+  padding: 10px;
+  margin-bottom: 8px;
+  background-color: #ecf0f1;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.usda-food-list li:hover {
+  background-color: #d6eaf8;
+}
+
+.usda-food-list li.active {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Detalles nutricionales */
+.usda-details {
+  flex: 2;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.usda-details h3 {
+  color: #2c3e50;
+  margin-top: 0;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.5rem;
+}
+
+.usda-nutrients h4 {
+  color: #16a085;
+  margin-bottom: 1rem;
+}
+
+.usda-nutrients ul {
+  list-style: none;
+  padding: 0;
+}
+
+.usda-nutrients li {
+  margin-bottom: 0.5rem;
+  padding: 8px;
+  background-color: #f8f9fa;
+  border-left: 3px solid #3498db;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .usda-results-container {
+    flex-direction: column;
+  }
+  
+  .usda-food-list {
+    max-width: 100%;
+  }
+}
+
+.usda-food-list ul li {
+  background: #f1f8e9;
+  padding: 10px;
+  margin: 5px 0;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+.usda-food-list ul li:hover {
+  background: #dcedc8;
+}
+
+.usda-food-list ul li.active {
+  background: #aed581;
+  font-weight: bold;
+}
